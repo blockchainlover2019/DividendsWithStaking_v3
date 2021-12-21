@@ -1,0 +1,469 @@
+{
+  "version": "0.1.0",
+  "name": "solana_anchor",
+  "instructions": [
+    {
+      "name": "initPool",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolLedger",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rand",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "saleMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "saleAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "stakeMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "startAt",
+          "type": "i64"
+        },
+        {
+          "name": "period",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "stakeToken",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolLedger",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceStakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destStakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "metadataExtended",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "unstakeToken",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolLedger",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "metadataExtended",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceStakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destStakeAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "deposit",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolLedger",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceSaleAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destSaleAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolLedger",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadataExtended",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceSaleAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destSaleAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Pool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "saleMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "saleAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "stakeMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "stakeAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "poolLedger",
+            "type": "publicKey"
+          },
+          {
+            "name": "rand",
+            "type": "publicKey"
+          },
+          {
+            "name": "startAt",
+            "type": "i64"
+          },
+          {
+            "name": "period",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolLedger",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "publicKey"
+          },
+          {
+            "name": "lastNumber",
+            "type": "u64"
+          },
+          {
+            "name": "ledger",
+            "type": {
+              "vec": {
+                "defined": "DailyLedger"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MetadataExtended",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "publicKey"
+          },
+          {
+            "name": "values",
+            "type": "u64"
+          },
+          {
+            "name": "number",
+            "type": "u64"
+          },
+          {
+            "name": "withdrawNumber",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "DailyLedger",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "totalStakeToken",
+            "type": "u64"
+          },
+          {
+            "name": "income",
+            "type": "u64"
+          },
+          {
+            "name": "changed",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "TokenMintToFailed",
+      "msg": "Token mint to failed"
+    },
+    {
+      "code": 6001,
+      "name": "TokenSetAuthorityFailed",
+      "msg": "Token set authority failed"
+    },
+    {
+      "code": 6002,
+      "name": "TokenTransferFailed",
+      "msg": "Token transfer failed"
+    },
+    {
+      "code": 6003,
+      "name": "TokenBurnFailed",
+      "msg": "Token burn failed"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidTokenAccount",
+      "msg": "Invalid token account"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidTime",
+      "msg": "Invalid time"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidPoolLedger",
+      "msg": "Invalid pool ledger"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidPeriod",
+      "msg": "Invalid period"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidMetadataExtended",
+      "msg": "Invalid metadata extended account"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidTokenMint",
+      "msg": "Invalid token mint"
+    }
+  ]
+}
